@@ -1,7 +1,9 @@
 package cz.thepetas.carregisterrestclient.data;
 
 
-public abstract class Vehicle {
+import java.io.Serializable;
+
+public abstract class Vehicle implements Serializable {
 
     protected Long id;
 

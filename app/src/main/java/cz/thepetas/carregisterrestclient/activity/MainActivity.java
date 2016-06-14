@@ -101,6 +101,24 @@ public class MainActivity extends AppCompatActivity implements TaskFragment.Task
             }
         });
 
+        mTabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
 
     }
 
@@ -174,4 +192,5 @@ public class MainActivity extends AppCompatActivity implements TaskFragment.Task
         NetworkInfo info = manager.getActiveNetworkInfo();
         return info != null && info.isConnected();
     }
+
 }

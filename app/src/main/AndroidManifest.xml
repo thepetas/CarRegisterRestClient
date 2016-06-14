@@ -21,6 +21,23 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activity.car.CarActivity"
+            android:label="@string/car_detail">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".activity.person.PersonActivity"
+            android:label="@string/person_detail">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activity.MainActivity" />
+        </activity>
+
+
     </application>
 
 </manifest>

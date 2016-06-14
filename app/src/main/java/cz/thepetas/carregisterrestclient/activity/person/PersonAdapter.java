@@ -19,6 +19,7 @@ public class PersonAdapter extends ArrayAdapter<Person> {
         public TextView idTextView;
         public TextView nameTextView;
         public TextView surnameTextView;
+        public TextView birthNumberTextView;
     }
 
     public PersonAdapter(Context context, int resource, Person[] persons) {
@@ -38,6 +39,7 @@ public class PersonAdapter extends ArrayAdapter<Person> {
             viewHolder.idTextView = (TextView) convertView.findViewById(R.id.personId);
             viewHolder.nameTextView = (TextView) convertView.findViewById(R.id.personName);
             viewHolder.surnameTextView = (TextView) convertView.findViewById(R.id.personSurname);
+            viewHolder.birthNumberTextView = (TextView) convertView.findViewById(R.id.personBirthNumber);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -46,6 +48,7 @@ public class PersonAdapter extends ArrayAdapter<Person> {
         viewHolder.idTextView.setText("ID: " + p.getId());
         viewHolder.nameTextView.setText("Name: " + p.getName());
         viewHolder.surnameTextView.setText("Surname: " + p.getSurname());
+        viewHolder.surnameTextView.setText("Birth number: " + p.getBirthNumber());
 
         return convertView;
     }

@@ -3,7 +3,9 @@ package cz.thepetas.carregisterrestclient.data;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Car extends Vehicle {
+import java.io.Serializable;
+
+public class Car extends Vehicle implements Serializable {
 
     private String idMark;
 

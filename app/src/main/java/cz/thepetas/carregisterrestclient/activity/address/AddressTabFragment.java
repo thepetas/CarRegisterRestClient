@@ -28,8 +28,7 @@ public class AddressTabFragment extends ListFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tabs, container, false);
-        return view;
+        return inflater.inflate(R.layout.tabs, container, false);
 
     }
 
@@ -48,12 +47,6 @@ public class AddressTabFragment extends ListFragment {
             fm.beginTransaction().add(mTaskFragment, TASK_FRAGMENT).commit();
         }
 
-    }
-
-
-    @Override
-    public void onStart() {
-        super.onStart();
     }
 
     public void updateData(String newJson) {
