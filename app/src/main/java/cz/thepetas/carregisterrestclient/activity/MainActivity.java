@@ -162,6 +162,10 @@ public class MainActivity extends AppCompatActivity implements TaskFragment.Task
         if ((values[0].equals(Constants.ADDRESSES)) && mViewPagerAdapter.getAddressesTab() != null) {
             mViewPagerAdapter.getAddressesTab().updateData(values[1]);
         }
+
+        if (values[0].equals(Constants.SERVICE_UNAVAILABLE)) {
+            Toast.makeText(this, R.string.unavailable_server, Toast.LENGTH_SHORT).show();
+        }
         setStopRefreshing();
     }
 

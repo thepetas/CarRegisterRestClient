@@ -5,16 +5,13 @@ import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.util.JsonReader;
-import android.util.Log;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+
+import cz.thepetas.carregisterrestclient.data.Constants;
 
 public class TaskFragment extends Fragment {
 
@@ -78,10 +75,11 @@ public class TaskFragment extends Fragment {
         @Override
         protected String[] doInBackground(String... params) {
             SystemClock.sleep(1 * 1000);
+            String resource = params[0];
             String tmp = "";
             try {
 
-                URL url = new URL(params[0]);
+                URL url = new URL(resource);
                 URLConnection connection = url.openConnection();
                 BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
@@ -90,13 +88,11 @@ public class TaskFragment extends Fragment {
                     tmp += line;
                 }
             } catch (Exception e) {
-                tmp = "";
+                resource = Constants.SERVICE_UNAVAILABLE;
             }
             String res[] = new String[2];
-            res[0] = params[0];
+            res[0] = resource;
             res[1] = tmp;
-            Log.i("TASK_F", "IN: '" + params[0] + "'");
-            Log.i("TASK_F", "OUT: '" + tmp + "'");
             return res;
         }
     }

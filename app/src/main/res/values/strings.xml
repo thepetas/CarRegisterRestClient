@@ -9,4 +9,5 @@
     <string name="no_owner">No owner</string>
     <string name="person_detail">Person detail</string>
     <string name="address_details">Address details:</string>
+    <string name="unavailable_server">Sorry, server is temporarily unavailable.</string>
 </resources>
