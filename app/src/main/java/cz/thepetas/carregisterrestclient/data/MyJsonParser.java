@@ -1,53 +1,74 @@
 package cz.thepetas.carregisterrestclient.data;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class MyJsonParser {
 
-    public static List<Car> getCarsFromJSON(String json) {
-        List<Car> cars = new ArrayList<Car>();
-        JSONArray array = null;
-        try {
-            array = new JSONArray(json);
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject jsonObject = (JSONObject) array.get(i);
-                cars.add(new Car(jsonObject.toString()));
+    public static Car[] getCarsFromJSON(String json) {
+        if (json != null) {
+            List<Car> cars = new ArrayList<Car>();
+            JSONArray array = null;
+            try {
+                array = new JSONArray(json);
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject jsonObject = (JSONObject) array.get(i);
+                    cars.add(new Car(jsonObject.toString()));
+                }
+            } catch (JSONException ignored) {
             }
-        } catch (JSONException ignored) {
+
+            Car carsArray[] = new Car[cars.size()];
+            cars.toArray(carsArray);
+            return carsArray;
         }
-        return cars;
+        return null;
     }
 
-    public static List<Address> getAddressesFromJSON(String json) {
-        List<Address> addresses = new ArrayList<Address>();
-        JSONArray array = null;
-        try {
-            array = new JSONArray(json);
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject jsonObject = (JSONObject) array.get(i);
-                addresses.add(new Address(jsonObject.toString()));
+    public static Address[] getAddressesFromJSON(String json) {
+        if (json != null) {
+            List<Address> addresses = new ArrayList<Address>();
+            JSONArray array = null;
+            try {
+                array = new JSONArray(json);
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject jsonObject = (JSONObject) array.get(i);
+                    addresses.add(new Address(jsonObject.toString()));
+                }
+            } catch (JSONException ignored) {
             }
-        } catch (JSONException ignored) {
+            Address addressesArray[] = new Address[addresses.size()];
+            addresses.toArray(addressesArray);
+            return addressesArray;
         }
-        return addresses;
+        return null;
     }
 
-    public static List<Person> getPersonsFromJSON(String json) {
-        List<Person> persons = new ArrayList<Person>();
-        JSONArray array = null;
-        try {
-            array = new JSONArray(json);
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject jsonObject = (JSONObject) array.get(i);
-                persons.add(new Person(jsonObject.toString()));
+    public static Person[] getPersonsFromJSON(String json) {
+        if (json != null) {
+            List<Person> persons = new ArrayList<Person>();
+            Log.i("MY_JSON_PARSER", "VALUE: " + json);
+            JSONArray array = null;
+            try {
+                array = new JSONArray(json);
+                for (int i = 0; i < array.length(); i++) {
+                    JSONObject jsonObject = (JSONObject) array.get(i);
+                    persons.add(new Person(jsonObject.toString()));
+                }
+            } catch (JSONException ignored) {
+                Log.i("MY_JSON_PARSER", "JSON ERROR: " + ignored.getMessage());
             }
-        } catch (JSONException ignored) {
+            Person personsArray[] = new Person[persons.size()];
+            persons.toArray(personsArray);
+            return personsArray;
         }
-        return persons;
+        return null;
     }
 }

@@ -93,4 +93,8 @@ public class Person {
     public Long getCntCars() {
         return (vehicles != null) ? vehicles.size() : (long) 0;
     }
+
+    public String getNameSurname() {
+        return name + surname;
+    }
 }
