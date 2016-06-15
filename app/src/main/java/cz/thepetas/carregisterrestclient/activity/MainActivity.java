@@ -171,7 +171,9 @@ public class MainActivity extends AppCompatActivity implements TaskFragment.Task
 
 
     public void setStartRefreshing() {
-        mRefreshMenuItem.setActionView(mProgressActionView);
+        if (mRefreshMenuItem != null) {
+            mRefreshMenuItem.setActionView(mProgressActionView);
+        }
     }
 
     public void setStopRefreshing() {
